@@ -1,7 +1,7 @@
 {
-  "name": "gengine-js",
-  "version": "0.0.1",
-  "description": "Gandis Engine on Web",
+  "name": "webgl-example",
+  "version": "0.0.0",
+  "description": "The examples are used on Gandis Blog",
   "main": "index.ts",
   "author": {
     "name": "gandis",
