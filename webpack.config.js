@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  name: 'gengine-js',
+  name: 'webgl-example',
   entry: ['babel-polyfill', './src/index.ts'],
   output: {
     filename: 'gengine.js',
