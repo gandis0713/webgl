@@ -25,8 +25,8 @@ jobs:
           LATEST=`npm view . version`
           CURRENT=`cat package.json | jq -r .version`
 
-          echo "latest version : $LATEST"
-          echo "current version : $CURRENT"
+          echo "Latest Version : $LATEST"
+          echo "Current Version : $CURRENT"
 
           minVersion=$(printf '%s\n' "$LATEST" "$CURRENT" | sort -V | head -n1)
           if [ "$minVersion" != "$CURRENT" ]; then
@@ -38,5 +38,5 @@ jobs:
             echo "publish version : $CURRENT"
             npm publish
           else
-            echo "publish skip"
+            echo "publish was skipped."
           fi
