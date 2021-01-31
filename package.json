@@ -45,7 +45,6 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-polyfill": "^6.26.0",
-    "cz-conventional-changelog": "^3.3.0",
     "gl-matrix": "^3.3.0",
     "raw-loader": "^4.0.2",
     "webpack": "^5.15.0",
