@@ -4,9 +4,9 @@ module.exports = {
   name: 'webgl-example',
   entry: ['babel-polyfill', './src/index.ts'],
   output: {
-    filename: 'gengine.js',
+    filename: 'webgl-example.js',
     path: path.resolve(__dirname + '/dist'),
-    library: 'gengine',
+    library: 'webglexample',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -25,6 +25,9 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      webglexample: __dirname,
+    },
     extensions: ['.ts', '.js', '.json'],
   },
 };

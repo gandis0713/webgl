@@ -2,7 +2,7 @@
   "name": "webgl-example",
   "version": "0.0.0",
   "description": "The examples are used on Gandis Blog",
-  "main": "index.ts",
+  "main": "./dist/webgl-example.js",
   "author": {
     "name": "gandis",
     "email": "gandis0713@gmail.com",

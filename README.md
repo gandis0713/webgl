@@ -4,5 +4,3 @@
 ![npm-download](https://img.shields.io/npm/dm/webgl-example.svg)
 ![yarn-version-requirement](https://img.shields.io/badge/npm-6.14.10-brightgreen.svg)
 ![node-version-requirement](https://img.shields.io/badge/node-14.15.4-brightgreen.svg)
-
-## How to build
