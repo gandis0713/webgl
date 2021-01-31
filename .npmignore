@@ -4,3 +4,5 @@ node_modules
 dist
 *.log
 *.lock
+webpack.config.js
+.babelrc

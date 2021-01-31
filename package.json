@@ -16,9 +16,10 @@
     "3d",
     "webgl",
     "mesh",
-    "imgae",
+    "image",
     "volume",
-    "graphics"
+    "graphics",
+    "rendering"
   ],
   "repository": {
     "type": "git",
@@ -32,7 +33,8 @@
     "npm": "6.14.10"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
