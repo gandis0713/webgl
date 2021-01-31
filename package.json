@@ -8,6 +8,9 @@
     "email": "gandis0713@gmail.com",
     "url": "http://gandis0713.github.io"
   },
+  "contributors": [
+    "Gandis <gandis0713@gmail.com> (https://gandis0713.github.io)"
+  ],
   "license": "MIT",
   "keywords": [
     "3d",
