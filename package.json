@@ -1,6 +1,6 @@
 {
   "name": "webgl-example",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The examples are used on Gandis Blog",
   "main": "./dist/webgl-example.js",
   "author": {
