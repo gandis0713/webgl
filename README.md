@@ -23,35 +23,24 @@ Concept
 =======
 
 webgl-example has a very simple structure and has two representative components.
-- Renderer
-- RenderWindow
-The Renderer is responsible for the task related to drawing.
-Thre RenderWindow is responsible for user interaction and provides an API to the user.
+- Renderer is responsible for the task related to drawing.
+- RenderWindow is responsible for user interaction and provides an API to the user.
 
 How to use
 ==========
-- Package Manager
-~~~cmd
+~~~shell
 $ npm install webgl-example
 ~~~
- - HTML
- ~~~HTML
- <script src="../../dist/webgl-example.js"></script>
-<script>
-    const SharpenImageWindow = webglexample.default.rendering.core.window.SharpenImageWindow;
-    window.addEventListener('load', function() {
-        const container = document.getElementById("gl_container");
-        const imageWindow = new SharpenImageWindow(container);
-        imageWindow.initialize(500, 500);
-        const image = new Image();
-        image.src = "<Image resource address>";
-        image.addEventListener('load', function() {
-            imageWindow.setImage(image);
-        });
-    });
-</script>
-<body>
-    <div id="gl_container" style="width: 100%"></div>
-</body>
+ ~~~Javascript
+const imageWindow = new SharpenImageWindow(container);
+const image = new Image();
+image.src = "<Image resource address>";
+image.addEventListener('load', function() {
+    imageWindow.setImage(image);
+});
  ~~~
+
+ Examples
+ ========
+ - [Image Processing](https://github.com/gandis0713/webgl-example/tree/master/examples/image)
 

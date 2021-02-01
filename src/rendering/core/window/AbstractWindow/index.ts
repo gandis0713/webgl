@@ -8,6 +8,8 @@ abstract class AbstractWindow {
   constructor(container) {
     this.container = container;
     this.canvas = document.createElement('canvas');
+    this.canvas.width = 500;
+    this.canvas.height = 500;
     this.container.appendChild(this.canvas);
     this.gl = this.canvas.getContext('webgl');
 
@@ -20,7 +22,11 @@ abstract class AbstractWindow {
     this.container.addEventListener('touchstart', this.touchStartEvent, false);
     this.container.addEventListener('touchmove', this.touchMoveEvent, false);
     this.container.addEventListener('touchend', this.touchEndEvent, false);
-    this.container.addEventListener('touchcancel', this.touchCancelEvent, false);
+    this.container.addEventListener(
+      'touchcancel',
+      this.touchCancelEvent,
+      false
+    );
   }
 
   protected bind(): void {
