@@ -1,6 +1,6 @@
 {
   "name": "webgl-example",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The examples are used on Gandis Blog",
   "main": "./src/index.js",
   "author": {
