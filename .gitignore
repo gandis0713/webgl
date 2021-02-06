@@ -2,3 +2,5 @@ node_modules
 dist
 *.log
 .npmrc
+src/**/index.d.ts
+src/**/index.js

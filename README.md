@@ -31,16 +31,30 @@ How to use
 ~~~shell
 $ npm install webgl-example
 ~~~
- ~~~Javascript
+~~~Javascript
+import SharpenImageWindow from 'webgl-example/src/rendering/core/window/SharpenImageWindow';
+
 const imageWindow = new SharpenImageWindow(container);
 const image = new Image();
 image.src = "<Image resource address>";
 image.addEventListener('load', function() {
     imageWindow.setImage(image);
 });
- ~~~
+~~~
 
- Examples
- ========
- - [Image Processing](https://github.com/gandis0713/webgl-example/tree/master/examples/image)
+Configure
+=========
+- Webpack
+~~~webpack
+rules: [
+    {
+        test: /\.glsl$/,
+        use: [ 'shader-loader' ]
+    },
+]
+~~~
+
+Examples
+========
+- [Image Processing](https://github.com/gandis0713/webgl-example/tree/master/examples/image)
 

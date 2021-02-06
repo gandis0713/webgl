@@ -3,11 +3,12 @@
 dist
 examples
 node_modules
-src
 .babelrc
 .gitignore
 .npmignore
 tsconfig.json
 webpack.config.js
+src/**/index.ts
+src/glsl.d.ts
 *.log
 *.lock
