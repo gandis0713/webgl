@@ -28,11 +28,6 @@
   "bugs": {
     "url": "https://github.com/gandis0713/webgl-example/issues"
   },
-  "engines": {
-    "node": "^12.18.3",
-    "npm": "^6.14.6",
-    "yarn": "^1.22.0"
-  },
   "scripts": {
     "build:bundle": "webpack",
     "build:release": "tsc",
