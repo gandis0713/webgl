@@ -1,5 +1,3 @@
 import rendering from './rendering';
 
-export default {
-  rendering,
-};
+export { rendering };

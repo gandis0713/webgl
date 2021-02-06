@@ -1,11 +1,11 @@
 import AbstractRenderer from '../../renderer/AbstractRenderer';
 abstract class AbstractWindow {
-  protected container;
-  protected canvas;
+  protected container: HTMLElement;
+  protected canvas: HTMLCanvasElement;
   protected renderer: AbstractRenderer;
-  protected gl;
+  protected gl: WebGLRenderingContext | null;
 
-  constructor(container) {
+  constructor(container: HTMLElement) {
     this.container = container;
     this.canvas = document.createElement('canvas');
     this.canvas.width = 500;
@@ -56,37 +56,37 @@ abstract class AbstractWindow {
 
   protected abstract createRenderer(): void;
 
-  protected mouseDownEvent(event): void {
+  protected mouseDownEvent(event: MouseEvent): void {
     this.renderer.mouseDownEvent(this.getViewPosition(event));
   }
 
-  protected mouseMoveEvent(event): void {
+  protected mouseMoveEvent(event: MouseEvent): void {
     this.renderer.mouseMoveEvent(this.getViewPosition(event));
   }
 
-  protected mouseUpEvent(event): void {
+  protected mouseUpEvent(event: MouseEvent): void {
     this.renderer.mouseUpEvent(this.getViewPosition(event));
   }
 
-  protected touchStartEvent(event): void {
+  protected touchStartEvent(event: TouchEvent): void {
     event.stopPropagation();
     event.preventDefault();
     this.renderer.mouseDownEvent(this.getViewPosition(event.touches[0]));
   }
 
-  protected touchMoveEvent(event): void {
+  protected touchMoveEvent(event: TouchEvent): void {
     event.stopPropagation();
     event.preventDefault();
     this.renderer.mouseMoveEvent(this.getViewPosition(event.touches[0]));
   }
 
-  protected touchEndEvent(event): void {
+  protected touchEndEvent(event: TouchEvent): void {
     event.stopPropagation();
     event.preventDefault();
     this.renderer.mouseUpEvent(this.getViewPosition(event.changedTouches[0]));
   }
 
-  protected touchCancelEvent(event): void {
+  protected touchCancelEvent(event: TouchEvent): void {
     event.stopPropagation();
     event.preventDefault();
     this.renderer.mouseUpEvent(this.getViewPosition(event.changedTouches[0]));
@@ -102,7 +102,7 @@ abstract class AbstractWindow {
     this.renderer.draw();
   }
 
-  public setRenderer(renderer): void {
+  public setRenderer(renderer: AbstractRenderer): void {
     this.renderer = renderer;
   }
 
@@ -110,7 +110,7 @@ abstract class AbstractWindow {
     return this.renderer;
   }
 
-  private getViewPosition(event): any {
+  private getViewPosition(event: any): any {
     const bounds = this.container.getBoundingClientRect();
     const scaleX = this.canvas.width / bounds.width;
     const scaleY = this.canvas.height / bounds.height;

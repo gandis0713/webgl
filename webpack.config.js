@@ -4,7 +4,7 @@ module.exports = {
   name: 'webgl-example',
   entry: ['babel-polyfill', './src/index.ts'],
   output: {
-    filename: 'webgl-example.js',
+    filename: 'index.bundle.js',
     path: path.resolve(__dirname + '/dist'),
     library: 'webglexample',
     libraryTarget: 'umd',
@@ -15,10 +15,10 @@ module.exports = {
     rules: [
       {
         test: /\.glsl$/,
-        use: ['raw-loader'],
+        use: ['shader-loader'],
       },
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(js|ts)$/,
         exclude: '/node_modules',
         use: ['babel-loader'],
       },
@@ -26,7 +26,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      webglexample: __dirname,
+      'webgl-example': __dirname,
     },
     extensions: ['.ts', '.js', '.json'],
   },
