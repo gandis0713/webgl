@@ -22,17 +22,22 @@ Requirements
 Concept
 =======
 
-webgl-example has a very simple structure and has two representative components.
+webgl-example has a very simple structure and has three representative components.
+- Action is responsible for user interaction and control view and objects.
 - Renderer is responsible for the task related to drawing.
-- RenderWindow is responsible for user interaction and provides an API to the user.
+- RenderWindow is responsible that manage renderer and action, provides function APIs to the user.
 
 How to use
 ==========
 ~~~shell
-$ npm install webgl-example
+$ npm i webgl-example
+~~~
+Or
+~~~shell
+$ yarn add webgl-example
 ~~~
 ~~~Javascript
-import SharpenImageWindow from 'webgl-example/src/rendering/core/window/SharpenImageWindow';
+import SharpenImageWindow from 'webgl-example/src/rendering/window/SharpenImageWindow';
 
 const imageWindow = new SharpenImageWindow(HtmlElement);
 const image = new Image();

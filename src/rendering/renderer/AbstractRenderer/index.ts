@@ -1,6 +1,6 @@
 import AbstractCamera from '../../camera/AbstractCamera';
 import OrthoGraphicCamera from '../../camera/OrthoGraphicCamera';
-import Shader from '../../Shader';
+import Shader from '../../core/Shader';
 import { vec2 } from 'gl-matrix';
 
 abstract class AbstractRenderer {

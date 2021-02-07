@@ -1,6 +1,6 @@
 import AbstractImageRenderer from '../../renderer/AbstractImageRenderer';
 import AbstractWindow from '../AbstractWindow';
-import ImageEffectAction from '../../../../action/ImageEffectAction';
+import ImageEffectAction from '../../../action/ImageEffectAction';
 
 abstract class AbstractImageWindow extends AbstractWindow {
   constructor(element: HTMLElement) {

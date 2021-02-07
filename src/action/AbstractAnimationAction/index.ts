@@ -1,4 +1,4 @@
-import AbstractRenderer from '../../rendering/core/renderer/AbstractRenderer';
+import AbstractRenderer from '../../rendering/renderer/AbstractRenderer';
 import AbstractAction from '../AbstractAction';
 
 abstract class AbstractAnimationAction extends AbstractAction {
