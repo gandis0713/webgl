@@ -23,9 +23,9 @@ Concept
 =======
 
 webgl-example has a very simple structure and has three representative components.
-- **Action** is responsible that for user interaction and control a view(**Renderer**) and objects.
 - **Renderer** is responsible that rendering objects.
-- **RenderWindow** has a renderer and an action, provides function APIs to the user.
+- **Action** is responsible that for user interaction and control a view(**Renderer**) and objects.
+- **Window** has a renderer and an action, provides function APIs to the user.
 
 How to use
 ==========
