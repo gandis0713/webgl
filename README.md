@@ -32,10 +32,6 @@ How to use
 ~~~shell
 $ npm i webgl-example
 ~~~
-Or
-~~~shell
-$ yarn add webgl-example
-~~~
 ~~~Javascript
 import SharpenImageWindow from 'webgl-example/src/rendering/window/SharpenImageWindow';
 
