@@ -29,7 +29,7 @@ webgl-example has a very simple structure and has three representative component
 
 How to use
 ==========
-- Package Manager
+- **Package Manager**
 ~~~shell
 $ npm i webgl-example
 ~~~
@@ -44,7 +44,7 @@ image.addEventListener('load', function() {
 });
 ~~~
 
-- Bundle
+- **Bundle**
 ~~~HTML
 <script src="./webgl-example.bundle.js"></script>
 <script>
