@@ -1,28 +1,16 @@
 import AbstractRenderer from '../AbstractRenderer';
 
 abstract class AbstractImageRenderer extends AbstractRenderer {
-  protected vertexBuffer;
-  protected textureBuffer;
-  protected image;
-  protected u_MCPC;
-  protected u_mousePosition;
+  protected vertexBuffer: WebGLBuffer;
+  protected textureBuffer: WebGLTexture;
+  protected image: HTMLImageElement;
+  protected u_MCPC: WebGLUniformLocation;
+  protected u_viewPosition: WebGLUniformLocation;
 
-  public mouseDownEvent(event): void {
-    super.mouseDownEvent(event);
+  protected viewPosition: number[] = [-100, -100];
 
-    this.draw();
-  }
-
-  public mouseMoveEvent(event): void {
-    super.mouseMoveEvent(event);
-
-    this.draw();
-  }
-
-  public mouseUpEvent(event): void {
-    super.mouseUpEvent(event);
-
-    this.draw();
+  public setViewPosition(viewPosition: number[]): void {
+    this.viewPosition = viewPosition;
   }
 
   public setImage(image): void {
@@ -36,8 +24,6 @@ abstract class AbstractImageRenderer extends AbstractRenderer {
       this.image
     );
 
-    // this.gl.generateMipmap(this.gl.TEXTURE_2D); // TODO check
-
     this.draw();
   }
 
@@ -45,7 +31,10 @@ abstract class AbstractImageRenderer extends AbstractRenderer {
     const shaderProgram = this.shader.getShaderProgram();
 
     this.u_MCPC = this.gl.getUniformLocation(shaderProgram, 'u_MCPC');
-    this.u_mousePosition = this.gl.getUniformLocation(shaderProgram, 'u_mousePosition');
+    this.u_viewPosition = this.gl.getUniformLocation(
+      shaderProgram,
+      'u_viewPosition'
+    );
   }
 
   public createBuffer(): void {
@@ -55,7 +44,26 @@ abstract class AbstractImageRenderer extends AbstractRenderer {
 
     this.gl.bufferData(
       this.gl.ARRAY_BUFFER,
-      new Float32Array([-1, 1, 0, 1, 1, 0, -1, -1, 0, -1, -1, 0, 1, 1, 0, 1, -1, 0]),
+      new Float32Array([
+        -1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        -1,
+        0,
+      ]),
       this.gl.STATIC_DRAW
     );
 
@@ -63,10 +71,26 @@ abstract class AbstractImageRenderer extends AbstractRenderer {
     this.textureBuffer = this.gl.createTexture();
     this.gl.bindTexture(this.gl.TEXTURE_2D, this.textureBuffer);
 
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE);
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE);
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_WRAP_S,
+      this.gl.CLAMP_TO_EDGE
+    );
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_WRAP_T,
+      this.gl.CLAMP_TO_EDGE
+    );
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_MIN_FILTER,
+      this.gl.LINEAR
+    );
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_MAG_FILTER,
+      this.gl.LINEAR
+    );
   }
 
   public draw(): void {
@@ -77,16 +101,23 @@ abstract class AbstractImageRenderer extends AbstractRenderer {
 
     const shaderProgram = this.shader.getShaderProgram();
 
-    const vertexID = this.gl.getAttribLocation(shaderProgram, 'vs_VertexPosition');
+    const vertexID = this.gl.getAttribLocation(
+      shaderProgram,
+      'vs_VertexPosition'
+    );
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.vertexBuffer);
     this.gl.vertexAttribPointer(vertexID, 3, this.gl.FLOAT, false, 0, 0);
     this.gl.enableVertexAttribArray(vertexID);
 
     this.gl.useProgram(shaderProgram);
     this.gl.uniformMatrix4fv(this.u_MCPC, false, this.camera.getWCPC());
-    this.gl.uniform2fv(this.u_mousePosition, this.mousePosition);
+    this.gl.uniform2fv(this.u_viewPosition, this.viewPosition);
 
     this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);
+  }
+
+  protected bindFunction(): void {
+    this.draw = this.draw.bind(this);
   }
 }
 

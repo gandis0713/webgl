@@ -3,12 +3,12 @@ precision mediump float;
 varying vec2 fs_textCoord;
 
 uniform sampler2D u_texture;
-uniform vec2 u_mousePosition;
+uniform vec2 u_viewPosition;
 uniform highp mat4 u_MCPC;
 
 
 void main() {
-  float dist = distance(u_mousePosition, gl_FragCoord.xy);
+  float dist = distance(u_viewPosition, gl_FragCoord.xy);
   if(dist < 130.0 && dist > 120.0) 
   {
     vec4 color = texture2D(u_texture, fs_textCoord);
@@ -19,7 +19,7 @@ void main() {
   }
   else if(dist <= 120.0)
   {
-    vec4 coord = u_MCPC * vec4(u_mousePosition.xy, 0, 1);
+    vec4 coord = u_MCPC * vec4(u_viewPosition.xy, 0, 1);
     vec2 texCoord = vec2(coord.x / 2.0, 1.0 - (coord.y / 2.0));
     vec2 diff = (fs_textCoord - texCoord) / 3.0;
     gl_FragColor = texture2D(u_texture, texCoord + diff);

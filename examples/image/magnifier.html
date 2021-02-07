@@ -4,32 +4,32 @@
         <h1>Magnifier</h1>
         <p>Click(touch) on image and move up, down, left or right.</p>
     </body>
-    <script src="../../dist/webgl-example.js"></script>
+    <script src="../../dist/webgl-example.bundle.js"></script>
     <script>
         const MagnifierImageWindow = webglexample.rendering.core.window.MagnifierImageWindow;
-        let container;
+        let element;
         let imageWindow;
         let image;
         let windowRatio = 1;
         window.addEventListener('load', function() {
-            container = document.getElementById("gl_container");
-            imageWindow = new MagnifierImageWindow(container);
-            imageWindow.initialize(container.clientWidth, container.clientWidth * windowRatio);
+            element = document.getElementById("gl_element");
+            imageWindow = new MagnifierImageWindow(element);
+            imageWindow.initialize(element.clientWidth, element.clientWidth * windowRatio);
             image = new Image();
             image.crossOrigin = "anonymous";
             image.src = 'https://gandis0713.github.io/img/share/effect.jpg';
             image.addEventListener('load', function() {
                 windowRatio = image.height / image.width;
-                imageWindow.setSize(container.clientWidth, container.clientWidth * windowRatio);
+                imageWindow.setSize(element.clientWidth, element.clientWidth * windowRatio);
                 imageWindow.setImage(image);
             });
         })
         window.addEventListener('resize', function() {
             if(!image) return;
-            imageWindow.setSize(container.clientWidth, container.clientWidth * windowRatio);
+            imageWindow.setSize(element.clientWidth, element.clientWidth * windowRatio);
         });
     </script>
     <body>
-        <div id="gl_container" style="width: 100%"></div>
+        <div id="gl_element" style="width: 100%"></div>
     </body>
 </html>

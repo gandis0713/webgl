@@ -34,7 +34,7 @@ $ npm install webgl-example
 ~~~Javascript
 import SharpenImageWindow from 'webgl-example/src/rendering/core/window/SharpenImageWindow';
 
-const imageWindow = new SharpenImageWindow(container);
+const imageWindow = new SharpenImageWindow(HtmlElement);
 const image = new Image();
 image.src = "<Image resource address>";
 image.addEventListener('load', function() {

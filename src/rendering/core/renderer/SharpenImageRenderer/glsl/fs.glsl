@@ -3,7 +3,7 @@ precision mediump float;
 varying vec2 fs_textCoord;
 
 uniform sampler2D u_texture;
-uniform vec2 u_mousePosition;
+uniform vec2 u_viewPosition;
 uniform highp mat4 u_MCPC;
 
 
@@ -22,7 +22,7 @@ void main() {
   sharpenMat3[7] = -1.0;
   sharpenMat3[8] = -1.0;
   
-  if(u_mousePosition.x - width > gl_FragCoord.x) 
+  if(u_viewPosition.x - width > gl_FragCoord.x) 
   {
     gl_FragColor = vec4(0, 0, 0, 0);
     for(int i = -1; i <= 1; i++)
@@ -36,7 +36,7 @@ void main() {
       }
     }
   }
-  else if(u_mousePosition.x + width >= gl_FragCoord.x && u_mousePosition.x - width <= gl_FragCoord.x) // draw vertical line.
+  else if(u_viewPosition.x + width >= gl_FragCoord.x && u_viewPosition.x - width <= gl_FragCoord.x) // draw vertical line.
   {
     vec4 color = texture2D(u_texture, fs_textCoord);
     gl_FragColor.r = clamp(color.r * 0.5, 0., 1.);
