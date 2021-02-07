@@ -36,7 +36,7 @@ $ npm i webgl-example
 ~~~Javascript
 import SharpenImageWindow from 'webgl-example/src/rendering/window/SharpenImageWindow';
 
-const imageWindow = new SharpenImageWindow(HtmlElement);
+const imageWindow = new SharpenImageWindow(HTMLElement);
 const image = new Image();
 image.src = "<Image resource address>";
 image.addEventListener('load', function() {
@@ -48,11 +48,10 @@ image.addEventListener('load', function() {
 ~~~HTML
 <script src="./webgl-example.bundle.js"></script>
 <script>
-    const EdgeImageWindow = webglexample.rendering.window.EdgeImageWindow;
     window.addEventListener('load', function() {
-        element = document.getElementById("element");
-        imageWindow = new EdgeImageWindow(element);
-        image = new Image();
+        const divElement = document.getElementById("divElement");
+        const imageWindow = new webglexample.rendering.window.EdgeImageWindow(divElement);
+        const image = new Image();
         image.src = "<Image resource address>";
         image.addEventListener('load', function() {
             imageWindow.setImage(image);
@@ -60,7 +59,7 @@ image.addEventListener('load', function() {
     });
 </script>
 <body>
-    <div id="element"></div>
+    <div id="divElement"></div>
 </body>
 ~~~
 Configure
