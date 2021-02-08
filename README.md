@@ -22,19 +22,21 @@ Requirements
 Concept
 =======
 
-webgl-example has a very simple structure and has two representative components.
-- Renderer is responsible for the task related to drawing.
-- RenderWindow is responsible for user interaction and provides an API to the user.
+webgl-example has a very simple structure and has three representative components.
+- **Renderer** is responsible that rendering objects.
+- **Action** is responsible that for user interaction and control a view(**Renderer**) and objects.
+- **Window** has a renderer and an action, provides function APIs to the user.
 
 How to use
 ==========
+- **Package Manager**
 ~~~shell
-$ npm install webgl-example
+$ npm i webgl-example
 ~~~
 ~~~Javascript
-import SharpenImageWindow from 'webgl-example/src/rendering/core/window/SharpenImageWindow';
+import SharpenImageWindow from 'webgl-example/src/window/SharpenImageWindow';
 
-const imageWindow = new SharpenImageWindow(container);
+const imageWindow = new SharpenImageWindow(HTMLElement);
 const image = new Image();
 image.src = "<Image resource address>";
 image.addEventListener('load', function() {
@@ -42,6 +44,24 @@ image.addEventListener('load', function() {
 });
 ~~~
 
+- **Bundle**
+~~~HTML
+<script src="./webgl-example.bundle.js"></script>
+<script>
+    window.addEventListener('load', function() {
+        const divElement = document.getElementById("divElement");
+        const imageWindow = new webglexample.window.EdgeImageWindow(divElement);
+        const image = new Image();
+        image.src = "<Image resource address>";
+        image.addEventListener('load', function() {
+            imageWindow.setImage(image);
+        });
+    });
+</script>
+<body>
+    <div id="divElement"></div>
+</body>
+~~~
 Configure
 =========
 - Webpack

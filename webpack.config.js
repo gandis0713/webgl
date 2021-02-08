@@ -4,7 +4,7 @@ module.exports = {
   name: 'webgl-example',
   entry: ['babel-polyfill', './src/index.ts'],
   output: {
-    filename: 'index.bundle.js',
+    filename: 'webgl-example.bundle.js',
     path: path.resolve(__dirname + '/dist'),
     library: 'webglexample',
     libraryTarget: 'umd',
