@@ -34,7 +34,7 @@ How to use
 $ npm i webgl-example
 ~~~
 ~~~Javascript
-import SharpenImageWindow from 'webgl-example/src/rendering/window/SharpenImageWindow';
+import SharpenImageWindow from 'webgl-example/src/window/SharpenImageWindow';
 
 const imageWindow = new SharpenImageWindow(HTMLElement);
 const image = new Image();
@@ -50,7 +50,7 @@ image.addEventListener('load', function() {
 <script>
     window.addEventListener('load', function() {
         const divElement = document.getElementById("divElement");
-        const imageWindow = new webglexample.rendering.window.EdgeImageWindow(divElement);
+        const imageWindow = new webglexample.window.EdgeImageWindow(divElement);
         const image = new Image();
         image.src = "<Image resource address>";
         image.addEventListener('load', function() {

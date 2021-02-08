@@ -1,4 +1,4 @@
-import AbstractRenderer from '../../rendering/renderer/AbstractRenderer';
+import AbstractRenderer from '../../renderer/AbstractRenderer';
 import AbstractAction from '../AbstractAction';
 
 class NoAction extends AbstractAction {

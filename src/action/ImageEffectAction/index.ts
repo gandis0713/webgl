@@ -1,5 +1,5 @@
-import AbstractImageRenderer from '../../rendering/renderer/AbstractImageRenderer';
-import AbstractRenderer from '../../rendering/renderer/AbstractRenderer';
+import AbstractImageRenderer from '../../renderer/AbstractImageRenderer';
+import AbstractRenderer from '../../renderer/AbstractRenderer';
 import AbstractAnimationAction from '../AbstractAnimationAction';
 
 class ImageEffectAction extends AbstractAnimationAction {

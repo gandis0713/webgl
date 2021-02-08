@@ -1,4 +1,4 @@
-import AbstractRenderer from '../../rendering/renderer/AbstractRenderer';
+import AbstractRenderer from '../../renderer/AbstractRenderer';
 
 abstract class AbstractAction {
   protected element: HTMLElement;

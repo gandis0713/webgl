@@ -1,4 +1,4 @@
-import AbstractAction from '../../../action/AbstractAction';
+import AbstractAction from '../../action/AbstractAction';
 import AbstractRenderer from '../../renderer/AbstractRenderer';
 abstract class AbstractWindow {
   protected element: HTMLElement;
